@@ -15,7 +15,7 @@ public class GamePanel extends JPanel{
     private Main main;
     private ArrayList<Rocket> rocket;
     private Image Background,spaceshipImg,Pipe,rocketImg,meteoriteBig,meteoriteSmall,meteoriteNormal,addRocketImg,ufo1,ufo2;
-    private Image boss,score;
+    private Image score;
     private ArrayList<UFO> rect;
     private ArrayList<Meteorite> meteorite;
     private ArrayList<Rectangle> addRocket;
@@ -42,14 +42,12 @@ public class GamePanel extends JPanel{
             ufo1=ImageIO.read(getClass().getResource("/ufo1.png")).getScaledInstance(150,50, Image.SCALE_SMOOTH);
             ufo2=ImageIO.read(getClass().getResource("/ufo2.png")).getScaledInstance(150,50, Image.SCALE_SMOOTH);
             
-            boss=ImageIO.read(getClass().getResource("/bosstest.png")).getScaledInstance(Main.HEIGHT,Main.HEIGHT, Image.SCALE_SMOOTH);
             score=ImageIO.read(getClass().getResource("/score.png")).getScaledInstance(500,252, Image.SCALE_SMOOTH);
         }catch(IOException e){System.out.println(e);}
     }
     public void resizeImg(int WIDTH, int HEIGHT){
         this.Background=this.Background.getScaledInstance(WIDTH, HEIGHT, Image.SCALE_SMOOTH);
         this.Pipe=this.Pipe.getScaledInstance(50, HEIGHT*2, Image.SCALE_SMOOTH);
-        this.boss=this.boss.getScaledInstance(Main.HEIGHT, Main.HEIGHT, Image.SCALE_SMOOTH);
     }
     @Override
     public void paintComponent(Graphics g) {
