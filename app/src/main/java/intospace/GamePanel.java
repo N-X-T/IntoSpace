@@ -15,7 +15,7 @@ public class GamePanel extends JPanel{
     private Main main;
     private ArrayList<Rocket> rocket;
     private Image Background,spaceshipImg,Pipe,rocketImg,meteoriteBig,meteoriteSmall,meteoriteNormal,addRocketImg,ufo1,ufo2;
-    private Image score;
+    private Image score,logo;
     private ArrayList<UFO> rect;
     private ArrayList<Meteorite> meteorite;
     private ArrayList<Rectangle> addRocket;
@@ -43,6 +43,7 @@ public class GamePanel extends JPanel{
             ufo2=ImageIO.read(getClass().getResource("/ufo2.png")).getScaledInstance(150,50, Image.SCALE_SMOOTH);
             
             score=ImageIO.read(getClass().getResource("/score.png")).getScaledInstance(500,252, Image.SCALE_SMOOTH);
+            logo=ImageIO.read(getClass().getResource("/logo.png")).getScaledInstance(300,300, Image.SCALE_SMOOTH);
         }catch(IOException e){System.out.println(e);}
     }
     public void resizeImg(int WIDTH, int HEIGHT){
@@ -89,6 +90,7 @@ public class GamePanel extends JPanel{
         g.drawImage(spaceshipImg, Math.round(spaceship.x),Math.round(spaceship.y), null);
         
         if(this.main.getpause()){
+            g.drawImage(logo, (Main.WIDTH-300)/2, (Main.HEIGHT-300)/2, null);
             g.drawString("Guide:", Main.WIDTH-425, 30);
             g.drawString("Up,Down,Left,Right : Move", Main.WIDTH-425, 60);
             g.drawString("Enter: Fire Rocket",Main.WIDTH-425, 90);
